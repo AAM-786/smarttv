@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 3.9%; /* #0A0A0F */
+  --foreground: 0 0% 98%; /* #FAFAFA */
+  --muted: 240 3.7% 15.9%; /* #262626 */
+  --muted-foreground: 240 5% 64.9%; /* #A1A1AA */
+  --popover: 240 10% 3.9%; /* #0A0A0F */
+  --popover-foreground: 0 0% 98%; /* #FAFAFA */
+  --card: 240 10% 7%; /* #121218 */
+  --card-foreground: 0 0% 98%; /* #FAFAFA */
+  --border: 240 3.7% 15.9%; /* #262626 */
+  --input: 240 3.7% 15.9%; /* #262626 */
+  --primary: 262 83% 58%; /* #9333EA */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --secondary: 240 3.7% 15.9%; /* #262626 */
+  --secondary-foreground: 0 0% 98%; /* #FAFAFA */
+  --accent: 262 90% 50%; /* #8B5CF6 */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  --destructive: 0 84.2% 60.2%; /* #EF4444 */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  --ring: 262 83% 58%; /* #9333EA */
+  --radius: 1rem;
+  --royal-purple: 262 83% 58%; /* #9333EA */
+  --royal-gold: 45 100% 51%; /* #FFD700 */
+  --royal-blue: 231 98% 65%; /* #3B82F6 */
+  --royal-emerald: 142 76% 36%; /* #10B981 */
+}
+
+.light {
+  --background: 0 0% 98%; /* #FAFAFA */
+  --foreground: 25 47% 20%; /* #654321 */
+  --muted: 30 25% 89%; /* #E8E0D4 */
+  --muted-foreground: 25 47% 44.7%; /* #8B6F47 */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 25 47% 20%; /* #654321 */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 25 47% 20%; /* #654321 */
+  --border: 30 25% 82%; /* #D4C4B0 */
+  --input: 30 25% 82%; /* #D4C4B0 */
+  --primary: 25 76% 31%; /* #8B4513 */
+  --primary-foreground: 0 0% 98%; /* #FAFAFA */
+  --secondary: 30 25% 89%; /* #E8E0D4 */
+  --secondary-foreground: 25 47% 20%; /* #654321 */
+  --accent: 30 25% 89%; /* #E8E0D4 */
+  --accent-foreground: 25 47% 20%; /* #654321 */
+  --destructive: 0 84.2% 60.2%; /* #EF4444 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 25 76% 31%; /* #8B4513 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* TV-optimized focus styles */
+  .tv-focus:focus,
+  .tv-focus.focused {
+    @apply outline-none;
+    box-shadow: 0 0 0 4px hsl(var(--primary)), 0 8px 32px rgba(255, 215, 0, 0.3);
+    transform: scale(1.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Weather animations */
+  .weather-snow {
+    animation: snow-fall 10s linear infinite;
+  }
+
+  .weather-rain {
+    animation: rain-fall 3s linear infinite;
+  }
+
+  .weather-sun {
+    animation: sun-shimmer 4s ease-in-out infinite;
+  }
+
+  .weather-monsoon {
+    animation: monsoon-rain 2s linear infinite;
+  }
+
+  .weather-cloud {
+    animation: cloud-drift 15s linear infinite;
+  }
+
+  .weather-air {
+    animation: air-flow 6s ease-in-out infinite;
+  }
+
+  .weather-ice {
+    animation: ice-crystal 8s ease-in-out infinite;
+  }
+
+  .weather-thunder {
+    animation: thunder-flash 3s ease-in-out infinite;
+  }
+
+  .weather-rainbow {
+    animation: rainbow-shine 10s ease-in-out infinite;
+  }
+
+  @keyframes snow-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  @keyframes rain-fall {
+    0% { transform: translateY(-100vh); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+
+  @keyframes monsoon-rain {
+    0% { transform: translateY(-100vh) translateX(-10px); opacity: 1; }
+    100% { transform: translateY(100vh) translateX(10px); opacity: 0; }
+  }
+
+  @keyframes sun-shimmer {
+    0%, 100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+  }
+
+  @keyframes cloud-drift {
+    0% { transform: translateX(-100px); opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100vw); opacity: 0.7; }
+  }
+
+  @keyframes air-flow {
+    0%, 100% { transform: translateX(0) scale(1); opacity: 0.3; }
+    50% { transform: translateX(20px) scale(1.1); opacity: 0.7; }
+  }
+
+  @keyframes ice-crystal {
+    0% { transform: translateY(-100vh) rotate(0deg) scale(0.5); opacity: 1; }
+    50% { transform: rotate(180deg) scale(1); }
+    100% { transform: translateY(100vh) rotate(360deg) scale(0.5); opacity: 0; }
+  }
+
+  @keyframes thunder-flash {
+    0%, 90%, 100% { opacity: 0; }
+    5%, 10% { opacity: 1; box-shadow: 0 0 50px #FFD700; }
+  }
+
+  @keyframes rainbow-shine {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Advanced clock animations */
+  .clock-glow {
+    animation: clock-pulse 3s ease-in-out infinite;
+  }
+
+  .royal-gradient {
+    background: linear-gradient(135deg, hsl(var(--royal-purple)), hsl(var(--royal-gold)), hsl(var(--royal-blue)));
+    background-size: 300% 300%;
+    animation: royal-gradient-shift 8s ease infinite;
+  }
+
+  @keyframes clock-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--royal-purple) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--royal-purple) / 0.6), 0 0 60px hsl(var(--royal-gold) / 0.3); }
+  }
+
+  @keyframes royal-gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Marquee animation for dynamic messages */
+  .marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* 3D card effects */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-3d:hover {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+  }
+
+  /* Glass morphism effects */
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Royal button effects */
+  .royal-button {
+    background: linear-gradient(45deg, hsl(var(--royal-purple)), hsl(var(--royal-gold)));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .royal-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+  }
+
+  .royal-button:hover::before {
+    left: 100%;
+  }
+
+  /* News ticker animation */
+  .news-ticker {
+    animation: ticker 30s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Music progress animation */
+  .music-progress {
+    animation: music-progress var(--duration, 30s) linear infinite;
+  }
+
+  @keyframes music-progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  /* Card hover effects */
+  .tv-card {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .tv-card:hover,
+  .tv-card.focused {
+    @apply transform -translate-y-2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Large touch targets for TV */
+  .tv-button {
+    @apply min-w-[48px] min-h-[48px] p-4 rounded-xl font-semibold text-lg;
+  }
+
+  /* 10-foot UI spacing */
+  .tv-spacing {
+    @apply space-y-8;
+  }
+
+  .tv-grid {
+    @apply gap-8;
+  }
+
+  /* OTT platform shimmer effect */
+  .ott-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .ott-shimmer:hover::before,
+  .ott-shimmer:focus::before {
+    left: 100%;
+  }
+}
+
+/* Responsive breakpoints for TV */
+@media (min-width: 1920px) {
+  .tv-text-xs { font-size: 18px; }
+  .tv-text-sm { font-size: 22px; }
+  .tv-text-base { font-size: 26px; }
+  .tv-text-lg { font-size: 32px; }
+  .tv-text-xl { font-size: 40px; }
+  .tv-text-2xl { font-size: 48px; }
+  .tv-text-3xl { font-size: 64px; }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
